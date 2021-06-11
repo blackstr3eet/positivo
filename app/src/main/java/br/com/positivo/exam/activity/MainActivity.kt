@@ -33,20 +33,51 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.edittextInputFirst.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+        with(binding) {
+            execute.setOnClickListener {
+                viewModel.executeOperator(
+                    edittextInputFirst.text.toString(),
+                    edittextInputSecond.text.toString(),
+                    xorHex.isChecked)
+            }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            xorHex.setOnClickListener {
+                viewModel.resetOutput()
+            }
 
-            override fun afterTextChanged(s: Editable?) {}
-        })
+            orHex.setOnClickListener {
+                viewModel.resetOutput()
+            }
 
-        binding.edittextInputSecond.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            edittextInputFirst.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int,
+                ) {}
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
-            override fun afterTextChanged(s: Editable?) {}
-        })
+                override fun afterTextChanged(s: Editable?) {
+                    viewModel.resetOutput()
+                }
+            })
+
+            edittextInputSecond.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int,
+                ) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+                override fun afterTextChanged(s: Editable?) {
+                    viewModel.resetOutput()
+                }
+            })
+        }
     }
 }

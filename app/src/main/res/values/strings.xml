@@ -2,5 +2,5 @@
     <string name="name">Bitwise App</string>
     <string name="input_example_one">Inserir Dados (Ex.: F2D)</string>
     <string name="input_example_two">Inserir Dados (Ex.: A6B)</string>
-    <string name="wait">Aguardando</string>
+    <string name="wait">Executar</string>
 </resources>

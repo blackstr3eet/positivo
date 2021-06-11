@@ -5,10 +5,13 @@ import static java.lang.Integer.parseInt;
 public class Bitwise {
 
     private static final int BASE_BINARY = 2;
-    private static final String REGEX_VALID_HEXADECIMAL = "^(\\d|[a-f]|[A-F])+$";
+    private static final String REGEX_VALID_HEXADECIMAL = "^(\\d|[A-F])+$";
 
     public static String xor(String hexadecimalInput1, String hexadecimalInput2) {
         final StringBuilder bitwise = new StringBuilder();
+
+        hexadecimalInput1 = hexadecimalInput1.toUpperCase();
+        hexadecimalInput2 = hexadecimalInput2.toUpperCase();
 
         if (validHexadecimalFormatInput(hexadecimalInput1, hexadecimalInput2)) {
             CharSequence binarySequence1 = convertHexadecimalToBinary(hexadecimalInput1);
@@ -36,7 +39,7 @@ public class Bitwise {
 
             return convertBinaryToHexadecimal(bitwise).toString();
         } else {
-            return "value hexadecimal is invalid";
+            return "Value Input Is Invalid";
         }
     }
 
@@ -46,6 +49,9 @@ public class Bitwise {
 
     public static String or(String hexadecimalInput1, String hexadecimalInput2) {
         final StringBuilder bitwise = new StringBuilder();
+
+        hexadecimalInput1 = hexadecimalInput1.toUpperCase();
+        hexadecimalInput2 = hexadecimalInput2.toUpperCase();
 
         if (validHexadecimalFormatInput(hexadecimalInput1, hexadecimalInput2)) {
             CharSequence binarySequence1 = convertHexadecimalToBinary(hexadecimalInput1);
@@ -70,7 +76,7 @@ public class Bitwise {
 
             return convertBinaryToHexadecimal(bitwise).toString();
         } else {
-            return "value hexadecimal is invalid";
+            return "Value Input Is Invalid";
         }
     }
 
