@@ -22,9 +22,6 @@ public class Bitwise {
             char[] array1 = fillWithZerosForCompare(maxLength, binarySequence1).toString().toCharArray();
             char[] array2 = fillWithZerosForCompare(maxLength, binarySequence2).toString().toCharArray();
 
-            System.out.println(array1);
-            System.out.println(array2);
-
             for (int index = 0; index < maxLength; index++) {
                 if (array1[index] == '1' && array2[index] == '1') {
                     bitwise.append("0");
@@ -61,9 +58,6 @@ public class Bitwise {
 
             char[] array1 = fillWithZerosForCompare(maxLength, binarySequence1).toString().toCharArray();
             char[] array2 = fillWithZerosForCompare(maxLength, binarySequence2).toString().toCharArray();
-
-            System.out.println(array1);
-            System.out.println(array2);
 
             for (int index = 0; index < maxLength; index++) {
                 if (array1[index] == '1' || array2[index] == '1') {
