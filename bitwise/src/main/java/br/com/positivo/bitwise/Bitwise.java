@@ -4,6 +4,8 @@ import static java.lang.Integer.parseInt;
 
 public class Bitwise {
 
+    public static final String MESSAGE_ERROR_INPUT = "Value Input Is Invalid";
+
     private static final int BASE_BINARY = 2;
     private static final String REGEX_VALID_HEXADECIMAL = "^(\\d|[A-F])+$";
 
@@ -36,7 +38,7 @@ public class Bitwise {
 
             return convertBinaryToHexadecimal(bitwise).toString();
         } else {
-            return "Value Input Is Invalid";
+            return MESSAGE_ERROR_INPUT;
         }
     }
 
@@ -70,7 +72,7 @@ public class Bitwise {
 
             return convertBinaryToHexadecimal(bitwise).toString();
         } else {
-            return "Value Input Is Invalid";
+            return MESSAGE_ERROR_INPUT;
         }
     }
 

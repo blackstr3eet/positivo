@@ -1,31 +1,73 @@
 package br.com.positivo.exam
 
 import br.com.positivo.bitwise.Bitwise
-import br.com.positivo.bitwise.Bitwise.*
+import br.com.positivo.bitwise.Bitwise.or
+import br.com.positivo.bitwise.Bitwise.xor
 import org.junit.Assert
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers.anyString
-import org.mockito.Mockito.`when`
-import org.powermock.api.mockito.PowerMockito.mockStatic
-import org.powermock.core.classloader.annotations.PrepareForTest
-import org.powermock.modules.junit4.PowerMockRunner
+import org.junit.runners.JUnit4
 
-@RunWith(PowerMockRunner::class)
-@PrepareForTest(Bitwise::class, BitwiseTest::class)
-open class BitwiseTest {
+@RunWith(JUnit4::class)
+class BitwiseTest {
 
-    @Before
-    fun setUp() {
-//        mockStatic(Bitwise::class.java)
-
-//        `when`(or(anyString(), anyString())).thenReturn("")
-//        `when`(xor(anyString(), anyString())).thenReturn("")
+    @Test
+    fun methodOrWithInputIsInvalid() {
+        Assert.assertEquals(or("HG", "FF"), Bitwise.MESSAGE_ERROR_INPUT)
     }
 
     @Test
-    fun initTest() {
-//        Assert.assertEquals(or("FA", "FF"), "CF");
+    fun methodOrWithInputIsValid() {
+        Assert.assertNotEquals(or("65", "ac"), Bitwise.MESSAGE_ERROR_INPUT)
+    }
+
+    @Test
+    fun methodOrReturnValueCorrect() {
+        Assert.assertEquals(or("FF", "FAA"), "FFF")
+    }
+
+    @Test
+    fun methodOrReturnValueCorrectInputUpperCase() {
+        Assert.assertEquals(or("B12", "AF"), "BBF")
+    }
+
+    @Test
+    fun methodOrReturnValueCorrectInputLowerCase() {
+        Assert.assertEquals(or("b12", "af"), "BBF")
+    }
+
+    @Test
+    fun methodOrReturnValueCorrectInputMixedCase() {
+        Assert.assertEquals(or("b12", "AF"), "BBF")
+    }
+
+    @Test
+    fun methodXorWithInputIsInvalid() {
+        Assert.assertEquals(xor("HG", "FF"), Bitwise.MESSAGE_ERROR_INPUT)
+    }
+
+    @Test
+    fun methodXorWithInputIsValid() {
+        Assert.assertNotEquals(xor("65", "ac"), Bitwise.MESSAGE_ERROR_INPUT)
+    }
+
+    @Test
+    fun methodXorReturnValueCorrect() {
+        Assert.assertEquals(xor("FF", "FAA"), "F55")
+    }
+
+    @Test
+    fun methodXorReturnValueCorrectInputUpperCase() {
+        Assert.assertEquals(xor("B12", "AF"), "BBD")
+    }
+
+    @Test
+    fun methodXorReturnValueCorrectInputLowerCase() {
+        Assert.assertEquals(xor("b12", "af"), "BBD")
+    }
+
+    @Test
+    fun methodXorReturnValueCorrectInputMixedCase() {
+        Assert.assertEquals(xor("b12", "AF"), "BBD")
     }
 }
