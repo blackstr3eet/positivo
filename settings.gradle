@@ -1,0 +1,3 @@
+include ':bitwise'
+include ':app'
+rootProject.name = "exam"
