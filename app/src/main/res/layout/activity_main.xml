@@ -44,7 +44,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:hint="@string/input"
+            android:hint="@string/input_example_one"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +71,8 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:hint="@string/input"
+            android:hint="@string/input_example_two"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,10 +82,10 @@
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_border_second">
@@ -92,32 +94,40 @@
             android:id="@+id/xor_hex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="xor [ hexadecimal ]" />
-
-        <RadioButton
-            android:id="@+id/xor_byte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="xor [ byte ]" />
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="XOR" />
 
         <RadioButton
             android:id="@+id/or_hex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="or [ hexadecimal ]" />
-
+            android:layout_weight="1"
+            android:text="OR" />
     </RadioGroup>
+
+    <ImageView
+        android:id="@+id/execute"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ic_execute"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
     <TextView
         android:id="@+id/textview_result"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp"
-        android:background="@drawable/border"
+        android:gravity="center_vertical|center"
+        android:hint="@string/wait"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/execute" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
