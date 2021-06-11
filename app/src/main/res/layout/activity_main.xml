@@ -11,16 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray"
+        android:minHeight="?android:attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/name"
+            android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_border_first"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +44,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:hint="@string/input"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +70,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:hint="@string/input"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,16 +78,46 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_border_second">
+
+        <RadioButton
+            android:id="@+id/xor_hex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xor [ hexadecimal ]" />
+
+        <RadioButton
+            android:id="@+id/xor_byte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xor [ byte ]" />
+
+        <RadioButton
+            android:id="@+id/or_hex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="or [ hexadecimal ]" />
+
+    </RadioGroup>
+
     <TextView
         android:id="@+id/textview_result"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_border_second" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

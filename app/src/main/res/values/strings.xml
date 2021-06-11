@@ -1,3 +1,4 @@
 <resources>
-    <string name="name">BITWISE</string>
+    <string name="name">Bitwise App</string>
+    <string name="input">Inserir Dados (Ex.: "F2D")</string>
 </resources>
