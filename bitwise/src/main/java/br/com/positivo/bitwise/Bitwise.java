@@ -7,12 +7,6 @@ public class Bitwise {
     private static final int BASE_BINARY = 2;
     private static final String REGEX_VALID_HEXADECIMAL = "^(\\d|[a-f]|[A-F])+$";
 
-    /**
-     *
-     * @param hexadecimalInput1
-     * @param hexadecimalInput2
-     * @return
-     */
     public static String xor(String hexadecimalInput1, String hexadecimalInput2) {
         final StringBuilder bitwise = new StringBuilder();
 
@@ -47,15 +41,9 @@ public class Bitwise {
     }
 
     public static String xor(byte[] input1, byte[] input2) {
-
         return null;
     }
 
-    /**
-     * @param hexadecimalInput1
-     * @param hexadecimalInput2
-     * @return
-     */
     public static String or(String hexadecimalInput1, String hexadecimalInput2) {
         final StringBuilder bitwise = new StringBuilder();
 
@@ -86,20 +74,11 @@ public class Bitwise {
         }
     }
 
-    /**
-     * @param input1
-     * @param input2
-     * @return
-     */
-    public static boolean validHexadecimalFormatInput(final String input1, final String input2) {
+    private static boolean validHexadecimalFormatInput(final String input1, final String input2) {
         return input1.matches(REGEX_VALID_HEXADECIMAL) && input2.matches(REGEX_VALID_HEXADECIMAL);
     }
 
-    /**
-     * @param character
-     * @return
-     */
-    public static int convertHexadecimalToDecimal(final char character) {
+    private static int convertHexadecimalToDecimal(final char character) {
         switch (character) {
             case '0':
                 return 0;
@@ -138,11 +117,7 @@ public class Bitwise {
         }
     }
 
-    /**
-     * @param decimal
-     * @return
-     */
-    public static String convertDecimalToHexadecimal(final int decimal) {
+    private static String convertDecimalToHexadecimal(final int decimal) {
         switch (decimal) {
             case 0:
                 return "0";
@@ -181,11 +156,7 @@ public class Bitwise {
         }
     }
 
-    /**
-     * @param hexadecimalInput
-     * @return
-     */
-    public static CharSequence convertHexadecimalToBinary(String hexadecimalInput) {
+    private static CharSequence convertHexadecimalToBinary(String hexadecimalInput) {
         final StringBuilder binaryGroup = new StringBuilder();
         final char[] chars = hexadecimalInput.toCharArray();
 
@@ -211,11 +182,7 @@ public class Bitwise {
         return binaryGroup;
     }
 
-    /**
-     * @param binaryInput
-     * @return
-     */
-    public static CharSequence convertBinaryToHexadecimal(final CharSequence binaryInput) {
+    private static CharSequence convertBinaryToHexadecimal(final CharSequence binaryInput) {
         final StringBuilder outputHexadecimal = new StringBuilder();
         int sumDecimal = 0;
         int count = 3;
@@ -235,11 +202,7 @@ public class Bitwise {
         return outputHexadecimal;
     }
 
-    /**
-     * @param binaryInverse
-     * @return
-     */
-    public static CharSequence binaryGroupFormatter(final StringBuilder binaryInverse) {
+    private static CharSequence binaryGroupFormatter(final StringBuilder binaryInverse) {
         switch (binaryInverse.length()) {
             case 1:
                 return String.format("000%s", binaryInverse.reverse());
@@ -252,12 +215,7 @@ public class Bitwise {
         }
     }
 
-    /**
-     * @param maxLength
-     * @param binarySequence
-     * @return
-     */
-    public static CharSequence fillWithZerosForCompare(final int maxLength, final CharSequence binarySequence) {
+    private static CharSequence fillWithZerosForCompare(final int maxLength, final CharSequence binarySequence) {
         final StringBuilder newBinarySequence = new StringBuilder();
 
         if (binarySequence.length() == maxLength) {
