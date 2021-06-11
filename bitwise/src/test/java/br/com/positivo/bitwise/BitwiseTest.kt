@@ -1,6 +1,5 @@
-package br.com.positivo.exam
+package br.com.positivo.bitwise
 
-import br.com.positivo.bitwise.Bitwise
 import br.com.positivo.bitwise.Bitwise.or
 import br.com.positivo.bitwise.Bitwise.xor
 import org.junit.Assert

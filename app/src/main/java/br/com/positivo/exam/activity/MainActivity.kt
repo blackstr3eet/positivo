@@ -1,10 +1,13 @@
 package br.com.positivo.exam.activity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.lifecycle.ViewModelProviders
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.ViewModelProvider
 import br.com.positivo.exam.databinding.ActivityMainBinding
 import br.com.positivo.exam.viewmodel.MainViewModel
 
@@ -20,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         initObservers()
         initListeners()
@@ -55,7 +58,8 @@ class MainActivity : AppCompatActivity() {
                     start: Int,
                     count: Int,
                     after: Int,
-                ) {}
+                ) {
+                }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
@@ -70,7 +74,8 @@ class MainActivity : AppCompatActivity() {
                     start: Int,
                     count: Int,
                     after: Int,
-                ) {}
+                ) {
+                }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
@@ -80,4 +85,13 @@ class MainActivity : AppCompatActivity() {
             })
         }
     }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
 }
